@@ -8,6 +8,10 @@ app.use(express.json())
 
 const routes = require("./routes/router")
 
+const mongodb = require("./db/database")
+
+mongodb()
+
 app.use("/api", routes)
 
 app.listen(3000, ()=> console.log('Server is ONLINE running at backdoor 3000'))
