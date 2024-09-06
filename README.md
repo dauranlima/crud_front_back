@@ -1,18 +1,57 @@
-# React + Vite 
+# React + Vite - CRUD de Produtos
 
-# Projeto básico de CRUD de produtos
+Este é um projeto básico de CRUD (Create, Read, Update, Delete) de produtos utilizando React, Vite, Tailwind e Shadcn UI no frontend, e Express e MongoDB no backend.
 
-Este projeto esta utilizando REACT + Vite com tailwind e Shadcn UI para o Backend esta sendo utilizado Express e MongoDB
+## Funcionalidades
 
--- No backend a API REST esta divido em pastas tipo MVC e para executar basta utilizar o comando: npm start pois esta instalado o nodemon. 
+* Cadastro de produtos
+* Listagem de produtos
+* Edição de produtos
+* Exclusão de produtos
 
--- No frontend basta executar com npm run dev. o Fetch dos dados esta sendo usado o AXIOS e para roteamento das páginas o React Router DOM
+## Tecnologias utilizadas
 
+* Frontend:
+	+ React
+	+ Vite
+	+ Tailwind
+	+ Shadcn UI
+* Backend:
+	+ Express
+	+ MongoDB
 
+## Instalação e execução
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Frontend
 
-Currently, two official plugins are available:
+1. Clone o repositório
+2. Instale as dependências com `npm install`
+3. Execute o comando `npm run dev` para iniciar o servidor de desenvolvimento
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Backend
+
+1. Clone o repositório
+2. Instale as dependências com `npm install`
+3. Execute o comando `npm start` para iniciar o servidor
+
+## Rotas
+
+* `/`: Página inicial com listagem de produtos
+* `/produtos`: Página de cadastro de produtos
+* `/produtos/:id`: Página de edição de produtos
+* `/produtos/:id/excluir`: Página de exclusão de produtos
+
+## API
+
+* `GET /api/produtos`: Retorna a lista de produtos
+* `POST /api/produtos`: Cadastra um novo produto
+* `PUT /api/produtos/:id`: Edita um produto existente
+* `DELETE /api/produtos/:id`: Exclui um produto existente
+
+## Contribuição
+
+Contribuições são bem-vindas! Se você encontrar algum erro ou tiver alguma sugestão, por favor, abra uma issue ou faça um pull request.
+
+## Licença
+
+Este projeto é licenciado sob a licença MIT.
