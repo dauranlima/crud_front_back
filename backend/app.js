@@ -1,17 +1,20 @@
-const express = require('express')
-const cors = require('cors')
+const express = require("express")
+const cors = require("cors")
 const app = express()
 
 app.use(cors())
 
 app.use(express.json())
 
+const mongodb = require("./db/mongodb");
+
 const routes = require("./routes/router")
 
-const mongodb = require("./db/database")
+mongodb();
 
-mongodb()
+app.use("/api", routes);
 
-app.use("/api", routes)
+app.listen(3000, function(){
+  console.log('Server is ONLINE running on port 3000.')
+})
 
-app.listen(3000, ()=> console.log('Server is ONLINE running at backdoor 3000'))
