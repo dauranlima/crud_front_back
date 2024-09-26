@@ -1,110 +1,58 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import FetchData from "../axios/config";
+import FetchData from "@/axios/config";
+import { useRef } from "react";
+
+export default function AddProd() {
+
+  const navigate = useNavigate()
+
+  const inputRef = useRef()
+
+  const [name, setName] = useState('');
+  const [price, setPrice] = useState('');
+  const [color, setColor] = useState('');
+  const [image, setImage] = useState('');
+  const [quantity, setQuantity] = useState(0);
 
 
-const AddProd = () => {
 
-  const navigate = useNavigate();
-  
-  const [nome, setNome] = useState("");
-  const [codigo, setCodigo] = useState("");
-  const [descricao, setDescricao] = useState("");
-  const [categoria, setCategoria] = useState("");
-  const [quantidade, setQuantidade] = useState("");
-  const [preco, setPreco] = useState("");
-  const [tamanho, setTamanho] = useState("");
-  const [imagem, setImagem] = useState("");
-  
-  const createProduct = async (e) => {
-    e.preventDefault();
-    await FetchData.post("/produtos", {
-      nome: nome,
-      codigo: codigo,
-      descricao: descricao,
-      categoria: categoria,
-      quantidade: quantidade,
-      preco: preco,
-      tamanho: tamanho,
-      imagem: imagem,
-    });
-    navigate("/produtos");
-  };
-  
-  return (
-    <div>
-      <h1 className="font-bold mb-4">CADASTRO DE PRODUTO</h1>
-      <form onSubmit={(e) => createProduct(e)} className="flex flex-col gap-3 ">
-        <label>Nome:</label>
-        <input
-          type="text"
-          autoCapitalize="on"
-          placeholder="Digite o Nome:"
-          className="border uppercase border-slate-500 p-2 rounded-lg text-black"
-          onChange={(e) => setNome(e.target.value)}
-        />
-        <label>Código:</label>
-        <input
-          type="text"
-          maxLength={5}
-          placeholder="Digite o Código:"
-          className="border uppercase border-slate-500 p-2 rounded-lg text-black"
-          onChange={(e) => setCodigo(e.target.value)}
-        />
-
-        <label>Descrição:</label>
-        <textarea
-          maxLength={800}
-          placeholder="Digite a Descrição do produto"
-          className="resize-y uppercase rounded-md border p-2 border-black text-black"
-          onChange={(e) => setDescricao(e.target.value)}
-        ></textarea>
-        <label>Categoria:</label>
-        <input
-          type="text"
-          maxLength={50}
-          placeholder="Digite a Categoria:"
-          className="border uppercase  border-slate-500 p-2  rounded-lg text-black"
-          onChange={(e) => setCategoria(e.target.value)}
-        />
-        <label>Quantidade:</label>
-        <input
-          type="text"
-          maxLength={50}
-          placeholder="Digite a Quantidade:"
-          className="border uppercase  border-slate-500 p-2  rounded-lg text-black"
-          onChange={(e) => setQuantidade(e.target.value)}
-        />
-        <label>Preço:</label>
-        <input
-          type="number"
-          placeholder="Digite o Preço:"
-          className="border uppercase border-slate-500 p-2 rounded-lg text-black bg-roxo-claro"
-          onChange={(e) => setPreco(e.target.value)}
-        />
-        <label>Tamanho:</label>
-        <input
-          type="text"
-          maxLength={3}
-          placeholder="Digite o Tamanho:"
-          className="border uppercase border-slate-500 p-2 rounded-lg text-black"
-          onChange={(e) => setTamanho(e.target.value)}
-        />
-        <label>Imagem:</label>
-        <input
-          type="text"
-          className="border border-slate-500 p-2 rounded-lg text-black"
-          onChange={(e) => setImagem(e.target.value)}
-        />
-        <button
-          type="submit"
-          className="font-bold bg-green-500 w-fit py-3 px-6 rounded-lg text-black "
-        >
-          adicionar
-        </button>
-      </form>
-    </div>
-  );
-};
-
-export default AddProd;
+  const createProd = async (e) => {
+      e.preventDefault()
+      try {
+        await FetchData.post('/products', {
+          name,
+          price,
+          color,
+          image,
+          quantity,
+        })
+        navigate('/produtos')
+        
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    
+    useEffect(() => {
+      inputRef.current.focus()
+    }, []);
+    
+    return (
+      <>
+        <div className="border flex justify-center">
+          <form className="flex flex-col p-4 border w-96 justify-center gap-3" onSubmit={createProd}>
+            <div>
+              <h1 className="text-center font-bold text-3xl">Cadastro de Produto</h1>
+            </div>
+            <input ref={inputRef} required className="p-3 border rounded-md" type="text" placeholder="Digite o Nome..." onChange={(e) => setName(e.target.value)}/>
+            <input required className="p-3 border rounded-md" type="text" placeholder="Digite o Preço..." onChange={(e) => setPrice(e.target.value)}/>
+            <input required className="p-3 border rounded-md" type="text" placeholder="Digite a Cor..." onChange={(e) => setColor(e.target.value)}/>
+            <input  className="p-3 border rounded-md" type="text" placeholder="Digite URL da imagem..." onChange={(e) => setImage(e.target.value)}/>
+            <input  className="p-3 border rounded-md" type="number" placeholder="Digite a Quantidade..." onChange={(e) => setQuantity(e.target.value)}/>
+            <button className="p-3 bg-yellow-400 rounded-md shadow-md hover:bg-yellow-600 duration-300 hover:font-bold" type="submit">Gravar</button>
+          </form>
+        </div>
+      </>
+  )
+}

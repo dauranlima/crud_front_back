@@ -7,6 +7,10 @@ export default {
   ],
   theme: {
   	extend: {
+			fontFamily: {
+				'roboto': ['roboto', 'sans-serif'],
+				'til':['Tilt Prism', 'cursive'],
+			},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',

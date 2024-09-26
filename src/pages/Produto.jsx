@@ -1,22 +1,25 @@
-import Container from "@/components/Container";
-import ProdList from "@/components/ProdList";
-import { FaPlusCircle } from "react-icons/fa";
+import ListProd from "@/components/ListProd";
 import { Link } from "react-router-dom";
+import { useEffect, useRef } from "react";
+
 
 export default function Produto() {
+
+  const btnRef = useRef();
+
+  useEffect(() => {
+    btnRef.current.focus();
+  
+  }, []);
   return (
-    <Container>
-      <div>
-        <h1 className="text-3xl font-bold ">Produtos</h1>
-      </div>
-      <div className="flex justify-end ">
-        <button className="bg-yellow-500 flex items-center gap-3 px-3 py-2 hover:bg-yellow-400">
-        <FaPlusCircle size={18} />
-        <Link to="/AddProduto" className="bg-transparent flex items-center justify-center h-10  ">Adicionar Produtos</Link>
-        </button>
-        </div>
-    <p className="font-bold text-xl text-yellow-400">Lista de Produtos</p>
-    <ProdList/>
-    </Container>
+    <>
+    <div className="flex justify-between">
+      <h1 className="font-bold text-5xl text-yellow-500">Lista de Produtos</h1>
+      <Link ref={btnRef} to={'/addproduto'} className="p-3 bg-yellow-500 rounded-md mt-2 font-bold">Add Product</Link>
+    </div>
+    <div className="border h-[700px]">
+      <ListProd/>
+    </div>
+    </>
   )
 }

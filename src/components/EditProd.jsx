@@ -1,141 +1,64 @@
-import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import FetchData from "../axios/config";
+import FetchData from "@/axios/config"
+import { useState, useRef, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom"
 
 
-const EditProd = () => {
-  
+export default function EditProd() {
+
   const navigate = useNavigate();
-  
-  const [nome, setNome] = useState("");
-  const [codigo, setCodigo] = useState("");
-  const [descricao, setDescricao] = useState("");
-  const [categoria, setCategoria] = useState("");
-  const [quantidade, setQuantidade] = useState("");
-  const [preco, setPreco] = useState("");
-  const [tamanho, setTamanho] = useState("");
-  const [imagem, setImagem] = useState("");
+  const inputRef = useRef();
+  const {id} = useParams();
 
-  const { id } = useParams();
+  // state dos campos do input 
+  const [name, setName] = useState('');
+  const [price, setPrice] = useState('');
+  const [color, setColor] = useState('')
+  const [image, setImage] = useState('')
+  const [quantity, setQuantity] = useState(0)
+
 
   const getProds = async () => {
-    try {
-      const response = await FetchData.get(`/produtos/${id}`);
-      const data = response.data;
-      setNome(data.nome);
-      setCodigo(data.codigo);
-      setDescricao(data.descricao);
-      setCategoria(data.categoria);
-      setQuantidade(data.quantidade);
-      setPreco(data.preco);
-      setTamanho(data.tamanho);
-      
-    } catch (error) {
-      console.log(error);
-    }
-  };
+    const res = await FetchData.get(`/products/${id}`)
+    const data = await res.data
+    setName(data.name)
+    setPrice(data.price)
+    setColor(data.color)
+    setImage(data.image)
+    setQuantity(data.quantity)
+  }
 
   useEffect(() => {
-    getProds();
+    getProds()    
   }, []);
-
+  
   const updateProduct = async (e) => {
-    e.preventDefault();
-    await FetchData.put(`/produtos/${id}`, {
-      nome: nome,
-      codigo: codigo,
-      descricao: descricao,
-      categoria: categoria,
-      quantidade: quantidade,
-      preco: preco,
-      tamanho: tamanho,
-      imagem: imagem,
-    });
-    navigate("/produtos");
-  };
+      e.preventDefault()
+        await FetchData.put(`/products/${id}`,{
+          name,
+          price,
+          color,
+          image,
+          quantity,
+        })
 
+        navigate('/produtos')
+      }
+  
+  
   return (
-    <>
-      <h1 className="font-bold mb-4">EDITAR PRODUTO</h1>
-      <form onSubmit={getProds} className="flex flex-col gap-3 ">
-        <label>Nome:</label>
-        <input
-          type="text"
-          autoCapitalize="on"
-          maxLength={100}
-          placeholder="Digite o Nome:"
-          className="border uppercase border-slate-500 p-2 rounded-lg text-black"
-          value={nome}
-          onChange={(e) => setNome(e.target.value)}
-        />
-        <label>Código:</label>
-        <input
-          type="text"
-          maxLength={5}
-          placeholder="Digite o Código:"
-          className="border uppercase border-slate-500 p-2 rounded-lg text-black"
-          value={codigo}
-          onChange={(e) => setCodigo(e.target.value)}
-        />
-        <label>Descrição:</label>
-        <textarea
-          maxLength={800}
-          className="resize-y uppercase rounded-md border p-2 border-black text-black"
-          value={descricao}
-          onChange={(e) => setDescricao(e.target.value)}
-        ></textarea>
-        <label>Categoria:</label>
-        <input
-          type="text"
-          maxLength={50}
-          placeholder="Digite a Categoria:"
-          className="border uppercase  border-slate-500 p-2  rounded-lg text-black"
-          value={categoria}
-          onChange={(e) => setCategoria(e.target.value)}
-        />
-        <label>Quantidade:</label>
-        <input
-          type="text"
-          maxLength={50}
-          placeholder="Digite a Quantidade:"
-          className="border uppercase  border-slate-500 p-2  rounded-lg text-black"
-          value={quantidade}
-          onChange={(e) => setQuantidade(e.target.value)}
-        />
-        <label>Preço:</label>
-        <input
-          type="number"
-          placeholder="Digite o Preço:"
-          className="border uppercase border-slate-500 p-2 rounded-lg text-black"
-          value={preco}
-          onChange={(e) => setPreco(e.target.value)}
-        />
-        <label>Tamanho:</label>
-        <input
-          type="text"
-          maxLength={3}
-          placeholder="Digite o Tamanho:"
-          className="border uppercase border-slate-500 p-2 rounded-lg text-black"
-          value={tamanho}
-          onChange={(e) => setTamanho(e.target.value)}
-        />
-        <label>Imagem:</label>
-        <input
-          type="file"
-          className="border border-slate-500 p-2 rounded-lg text-black"
-          value={imagem}
-          onChange={(e) => setImagem(e.target.value)}
-        />
-        <button
-          type="submit"
-          onClick={updateProduct}
-          className="font-bold bg-green-500 w-fit py-3 px-6 rounded-lg text-black "
-        >
-          Editar Produto
-        </button>
-      </form>
-    </>
-  );
-};
+    <div className="border flex justify-center">
+          <form className="flex flex-col p-4 border w-96 justify-center gap-3" onSubmit={updateProduct}>
+            <div>
+              <h1 className="text-center font-bold text-3xl">Editar de Produto</h1>
+            </div>
+            <input value={name} ref={inputRef} required className="p-3 border rounded-md" type="text" placeholder="Digite o Nome..." onChange={(e) => setName(e.target.value)}/>
+            <input value={price} required className="p-3 border rounded-md" type="text" placeholder="Digite o Preço..." onChange={(e) => setPrice(e.target.value)}/>
+            <input value={color} required className="p-3 border rounded-md" type="text" placeholder="Digite a Cor..." onChange={(e) => setColor(e.target.value)}/>
+            <input value={image} required className="p-3 border rounded-md" type="text" placeholder="Digite a  URL da imagem..." onChange={(e) => setImage(e.target.value)}/>
+            <input value={quantity} required className="p-3 border rounded-md" type="number" placeholder="Digite a  Quantidade..." onChange={(e) => setQuantity(e.target.value)}/>
+            <button className="p-3 bg-orange-400 rounded-md shadow-md hover:bg-orange-600 duration-300 hover:font-bold " onClick={updateProduct} type="submit">Editar</button>
+          </form>
 
-export default EditProd;
+    </div>
+  )
+}

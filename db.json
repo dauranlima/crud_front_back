@@ -1,0 +1,174 @@
+{
+  "products": [
+    {
+      "name": "Tenis Nike Verde",
+      "price": "300",
+      "color": "Verde",
+      "image": "https://m.media-amazon.com/images/I/71VaQ+V6XnL._AC_UY695_.jpg",
+      "quantity": 10,
+      "id": "0712"
+    },
+    {
+      "id": "0002529",
+      "name": "Nike Feminino run07",
+      "price": "309",
+      "color": "Roxo",
+      "image": "https://m.media-amazon.com/images/I/61-cBsLhJHL._AC_UY695_.jpg",
+      "quantity": 10
+    },
+    {
+      "id": "0002527",
+      "name": "Sapato Feminino Bege",
+      "price": "300",
+      "color": "bege",
+      "image": "https://m.media-amazon.com/images/I/61V9APfz97L._AC_UY695_.jpg",
+      "quantity": 10
+    },
+    {
+      "id": "edf6",
+      "name": "Nike Running Xverse",
+      "price": "140",
+      "color": "Black",
+      "image": "https://m.media-amazon.com/images/I/71oEKkghg-L._AC_UX575_.jpg",
+      "quantity": 10
+    },
+    {
+      "id": "7812",
+      "name": "Puma soft ",
+      "price": "300",
+      "color": "cinza/verde",
+      "image": "https://m.media-amazon.com/images/I/81xXDjojYKS._AC_UX575_.jpg",
+      "quantity": 10
+    },
+    {
+      "id": "7408",
+      "name": "Vans Raibown Skate",
+      "price": "214",
+      "color": "Vermelho",
+      "image": "https://m.media-amazon.com/images/I/719gdz8lsTS._AC_UX575_.jpg",
+      "quantity": 10
+    },
+    {
+      "id": "2427",
+      "name": "Classic Sneaker",
+      "price": "310",
+      "color": "Preta",
+      "image": "https://m.media-amazon.com/images/I/61N4GyWcHPL._AC_UY575_.jpg",
+      "quantity": 10
+    }
+  ],
+  "sellers": [
+    {
+      "name": "Luiza Melo",
+      "email": "Lu@email.com",
+      "phone": "45-99325433",
+      "cidade": "Cascavel",
+      "foto": "https://i.pravatar.cc/150?img=10",
+      "id": "0012530",
+      "products": {
+        "id": "edf6",
+        "name": "produto novo teste1",
+        "price": "200",
+        "color": "whites",
+        "image": "https://m.media-amazon.com/images/I/71VaQ+V",
+        "quantity": 10
+      }
+    },
+    {
+      "id": "04565",
+      "name": "Roberto Mesquita",
+      "email": "roberta@email.com",
+      "phone": "44-99358778",
+      "cidade": "Marechal Rondon",
+      "foto": "https://i.pravatar.cc/150?img=12",
+      "products": {
+        "id": "edf6",
+        "name": "produto novo teste1",
+        "price": "200",
+        "color": "whites",
+        "image": "https://m.media-amazon.com/images/I/71VaQ+V",
+        "quantity": 10
+      }
+    },
+    {
+      "id": "00126527",
+      "name": "Paulo Veigas",
+      "email": "larissa@email.com",
+      "phone": "42-91078898",
+      "cidade": "Toledo",
+      "foto": "https://i.pravatar.cc/150?img=11",
+      "products": {
+        "id": "edf6",
+        "name": "produto novo teste1",
+        "price": "200",
+        "color": "whites",
+        "image": "https://m.media-amazon.com/images/I/71VaQ+V",
+        "quantity": 10
+      }
+    },
+    {
+      "id": "00124527",
+      "name": "Clara Martins",
+      "email": "calara@email.com",
+      "phone": "41-99198818",
+      "cidade": "Pinhais",
+      "foto": "https://i.pravatar.cc/150?img=43",
+      "products": {
+        "id": "edf6",
+        "name": "produto novo teste 1",
+        "price": "200",
+        "color": "whites",
+        "image": "https://m.media-amazon.com/images/I/71VaQ+V",
+        "quantity": 10
+      }
+    },
+    {
+      "id": "00128527",
+      "name": "Ana Carolina Pereira",
+      "email": "ana@email.com",
+      "phone": "42-97748898",
+      "cidade": "Terra Roxa",
+      "foto": "https://i.pravatar.cc/150?img=20",
+      "products": {
+        "id": "edf6",
+        "name": "produto novo teste 1",
+        "price": "200",
+        "color": "whites",
+        "image": "https://m.media-amazon.com/images/I/71VaQ+V",
+        "quantity": 10
+      }
+    },
+    {
+      "id": "00212527",
+      "name": "Olavo Ribeiro",
+      "email": "oli@email.com",
+      "phone": "41-89191552",
+      "cidade": "Campo Mourão",
+      "foto": "https://i.pravatar.cc/150?img=17",
+      "products": {
+        "id": "edf6",
+        "name": "produto novo teste 1",
+        "price": "200",
+        "color": "whites",
+        "image": "https://m.media-amazon.com/images/I/71VaQ+V",
+        "quantity": 10
+      }
+    },
+    {
+      "name": "Dauran Aguiar Lima",
+      "email": "dauran@gmail.com",
+      "phone": "(45) 988049400",
+      "cidade": "Cascavel",
+      "foto": "https://avatars.githubusercontent.com/dauranlima",
+      "id": "0d21",
+      "products": {
+        "id": "edf6",
+        "name": "produto novo teste 1",
+        "price": "200",
+        "color": "whites",
+        "image": "https://m.media-amazon.com/images/I/71VaQ+V",
+        "quantity": 10
+      }
+    }
+  ]
+}

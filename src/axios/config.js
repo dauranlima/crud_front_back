@@ -1,12 +1,10 @@
-import axios from 'axios'
-
+import axios from "axios";
 
 const FetchData = axios.create({
-  baseURL: "http://localhost:3000/api",
-  headers: {
-    "Content-Type": "application/json",
+  baseURL: 'http://localhost:3000',
+  headers:{
+    "Content-Type": 'application/json',
   }
 });
 
-
-export default FetchData;
+export default FetchData
