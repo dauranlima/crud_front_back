@@ -4,10 +4,11 @@ import { Link } from "react-router-dom";
 import Cart from "./Cart";
 import CartContext from "../context/cartContext";
 import FetchData from "@/axios/config";
+import ProductListEntrega from "./ProductListEntrega";
 
 export default function AddEntrega() {
 
-  const {prod,setProd, cartItems, setCardItems} = useContext(CartContext)
+  const {prod,setProd} = useContext(CartContext)
   const [busca, setBusca] = useState("");
 
   const getProds = async () => {
@@ -21,15 +22,7 @@ export default function AddEntrega() {
   }, []);
 
 
-  console.log([prod])
-
-  const handleAddCart = () => {
-    setCardItems([...cartItems, prod])
-  }
-
-  console.log(cartItems)
-
-  return (
+return (
 <>
 <div className="border rounded-lg border-gray-600 h-[740px] w-full flex lg:flex-row sm:flex-col  ">
 <div className="flex flex-col min-w-[680px]">
@@ -120,22 +113,7 @@ export default function AddEntrega() {
       <tbody >
         {prod.filter((proditem) => {return busca.toLocaleLowerCase() 
         === ""? proditem: proditem.name.toLocaleLowerCase().includes(busca) 
-        ||proditem.id.toLocaleLowerCase().includes(busca);}).map((proditem) => (
-              <tr key={proditem.id} className="border-b border-gray-200 dark:border-gray-700 ">
-                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                  {proditem.name}
-                </th>
-                <td className="px-6 py-4">
-                  {proditem.color}
-                </td>
-                <td className="px-6 py-4">
-                  ${proditem.price}
-                </td>
-                <td className="px-6 py-4 bg-gray-50 dark:bg-gray-800">
-                  <button onClick={handleAddCart} className="p-2 bg-green-400 rounded-lg shadow-xl hover:bg-green-700 duration-300 text-white font-bold">Adicionar</button>
-                </td>
-              </tr>
-          ))}
+        ||proditem.id.toLocaleLowerCase().includes(busca);}).map((proditem) => (<ProductListEntrega key={proditem.id} data={proditem}/>))}
       </tbody>
     </table>
   </div>

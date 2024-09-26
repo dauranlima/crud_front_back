@@ -5,7 +5,7 @@ import CartContext from "../context/cartContext";
 export default function Cart() {
 
   const { cartItems } = useContext(CartContext)
-  
+  console.log(cartItems)
   return (
     <>
     <section className="h-[735px] overflow-auto border-red-400 bg-blue-300 border-4">
