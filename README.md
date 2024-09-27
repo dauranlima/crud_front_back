@@ -2,6 +2,12 @@
 
 # Projeto básico de CRUD de produtos
 
+# Ideal para pessoas que vendem roupas me porta e precisam saber quanto cada vendedora ficou. 
+
+#preciso de ajuda para terminar. se quiserem me dar uma mão é sempre bem vindo!
+
+-dauranlima@gmail.com
+
 Este projeto esta utilizando REACT + Vite com tailwind e Shadcn UI para o Backend esta sendo utilizado Express e MongoDB
 
 -- No backend a API REST esta divido em pastas tipo MVC e para executar basta utilizar o comando: npm start pois esta instalado o nodemon. 
