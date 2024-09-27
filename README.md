@@ -21,6 +21,7 @@ Currently, two official plugins are available:
 ![image](https://github.com/user-attachments/assets/457ee970-da57-4d45-b126-ae0c1e15f53e)
 ![image](https://github.com/user-attachments/assets/1992d4c8-b791-4ade-b326-260f64271465)
 ![image](https://github.com/user-attachments/assets/e8e88724-f007-44a8-a616-7b5cb826e854)
+![image](https://github.com/user-attachments/assets/f263717e-67b2-499c-aefa-685a607c6e7a)
 
 
 
