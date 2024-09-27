@@ -1,12 +1,13 @@
 import FetchData from "@/axios/config";
 import CardVen from "@/components/CardVen";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import CartContext from "../context/cartContext";
 
 export default function Vendedor() {
 
 
-  const [seller, setSeller] = useState([]);
+  const {seller, setSeller} = useContext(CartContext)
   const [busca, setBusca] = useState("");
 
   const getSeller = async () => {

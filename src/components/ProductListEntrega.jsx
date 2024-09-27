@@ -6,7 +6,15 @@ export default function ProductListEntrega({ data }) {
   const {id, name, color, price} = data 
   const {cartItems, setCartItems} = useContext(CartContext)
 
-  const handleAddClick = () => setCartItems([...cartItems, data])
+  const handleAddClick = () =>{
+    if (cartItems.some(item => item.id === data.id)){
+      return
+    }
+    if(data.quantity === 0){
+      return
+    }
+    setCartItems([...cartItems, data])
+  }
 
   return (
     <>

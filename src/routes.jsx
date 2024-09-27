@@ -9,8 +9,9 @@ import AddProd from "./components/AddProd"
 import EditProd from "./components/EditProd"
 import EditVen from "./components/EditVen"
 import AddVen from "./components/addVen"
-import AddEntrega from "./components/addEntrega"
 import ListEntregas from "./components/ListEntregas"
+import AddEntrega from "./components/AddEntrega"
+import Scanner from "./components/Scanner"
 
 export default function AppRoutes() {
   return (
@@ -25,6 +26,7 @@ export default function AppRoutes() {
       <Route path="/addproduto" element={<AddProd />} />
       <Route path="/addvendedor" element={<AddVen />} />
       <Route path="/addentrega" element={<AddEntrega />} />
+      <Route path="/scanner" element={<Scanner />} />
       <Route path="/:id/editar" element={<EditProd />} />
       <Route path="/listaentregas" element={<ListEntregas />} />
       <Route path="/:id/editarven" element={<EditVen />} />
